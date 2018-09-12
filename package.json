@@ -11,6 +11,7 @@
     "copy:app": "npm run make-build && cp app/electron.js build/",
     "compile": "npm run clean && npm run copy:contents && npm run copy:app",
     "dist": "npm run compile && electron-builder -wml",
+    "dist-linux": "npm run compile && electron-builder -l",
     "live": "npm run copy:app && ELECTRON_IS_DEV=1 electron .",
     "update-submodules": "git submodule update --init --remote",
     "postinstall": "electron-builder install-app-deps && npm run update-submodules",
