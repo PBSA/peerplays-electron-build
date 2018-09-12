@@ -19,6 +19,7 @@ win:
 linux: 
   target:
     - deb
+  icon: ./icon.png
 files:
   - build/**/*
 electronVersion: 1.8.2
