@@ -1,17 +1,21 @@
 {
-  "name": "peerplays-electron-template",
-  "version": "0.0.1",
-  "description": "The intent of this project is to provide a starting point for building electron applications that connect to the Peerplays BlockChain.",
+  "name": "peerplays-electron-build-bookie",
+  "version": "1.0.0",
+  "description": "The intent of this project is to wrap bookie in electron.",
   "main": "build/electron.js",
   "scripts": {
     "start": "electron .",
     "clean": "rm -rf build && rm -rf dist",
-    "copy:contents": "mkdir build && cp -r contents/build/* build/",
-    "copy:app": "cp app/electron.js build/",
+    "make-build": "mkdir -p build",
+    "copy:contents": "npm run make-build && cp -R contents/build/* build/",
+    "copy:app": "npm run make-build && cp app/electron.js build/",
     "compile": "npm run clean && npm run copy:contents && npm run copy:app",
-    "dist": "electron-builder -wml",
+    "dist": "npm run compile && electron-builder -wml",
+    "dist-linux": "npm run compile && electron-builder -l",
     "live": "npm run copy:app && ELECTRON_IS_DEV=1 electron .",
-    "postinstall": "electron-builder install-app-deps"
+    "update-submodules": "git submodule update --init --remote",
+    "postinstall": "electron-builder install-app-deps && npm run update-submodules",
+    "release": "npm version patch && npm run compile && npm run dist"
   },
   "author": "",
   "license": "MIT",
@@ -19,7 +23,7 @@
     "electron-is-dev": "0.3.0"
   },
   "devDependencies": {
-    "electron": "1.8.2",
+    "electron": "^2.0.2",
     "electron-builder": "20.2.0"
   }
 }
