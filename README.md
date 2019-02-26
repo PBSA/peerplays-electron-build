@@ -15,16 +15,8 @@ brew install gettext
 // To Update the submodule with the latest code in develop.
 npm run update-submodules
 
-// Install the node packages for the repository that is now inside the contents directory.
-cd contents/
-npm install
-
-// Ensure you have an environment configuration setup within config.js inside the newly populated contents directory before continuing.
-// Set the environment name with one of the configured environments within config.js. beatrice is an example
-TARGET=beatrice npm run build
-
-// Move up a directory to the root of the boilerplate repo.
-cd ../
+// To Update the submodule with the latest code in develop.
+npm run update-submodules
 
 // Compile the electron app.
 npm run dist
