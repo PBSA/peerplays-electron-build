@@ -1,7 +1,14 @@
 directories:
   output: dist
-  buildResources: build
-appId: com.peerplays.EXAMPLE
+appId: com.peerplays.peerplayscoregui
+productName: Peerplays Core GUI
+extraMetadata:
+  name: Peerplays Core GUI
+  homepage: https://www.peerplays.com/
+  description: A GUI for interacting with the Peerplays Blockchain
+  author: 
+    name: Peerplays
+    email: info@peerplays.com
 mac:
   category: public.app-category.productivity
   icon: ./build/icon.icns
@@ -9,7 +16,10 @@ win:
   target:
     - nsis
   icon: ./build/icon.ico
+linux: 
+  target:
+    - deb
+  icon: ./icon.png
 files:
   - build/**/*
-  - node_modules/**/*
 electronVersion: 1.8.2
