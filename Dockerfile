@@ -5,6 +5,8 @@ FROM node:8.9.4
 RUN npm install -g webpack
 RUN apt-get update && apt-get install -y fakeroot
 RUN apt-get install -y wine64
+# required for some node modules on linux systems
+RUN apt-get install libpng-dev
 
 # copy the application files
 COPY . /usr/src/app
