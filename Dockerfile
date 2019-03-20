@@ -3,9 +3,9 @@ FROM node:8.9.4
 
 # Install dependencies
 RUN npm install -g webpack
+RUN sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ cosmic main'
 RUN apt-get update && apt-get install -y fakeroot
-RUN apt-get install -y wine64
-# required for some node modules on linux systems
+RUN sudo apt install --install-recommends winehq-stable
 RUN apt-get install libpng-dev
 
 # copy the application files
