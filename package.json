@@ -10,6 +10,9 @@
     "copy:app": "cp app/electron.js build/",
     "compile": "npm run clean && npm run copy:contents && npm run copy:app",
     "dist": "npm run compile && electron-builder -wml",
+    "dist-mac": "npm run compile && electron-builder -m",
+    "dist-win": "npm run compile && electron-builder -w",
+    "dist-lin": "npm run compile && electron-builder -l",
     "live": "npm run copy:app && ELECTRON_IS_DEV=1 electron .",
     "postinstall": "electron-builder install-app-deps"
   },
@@ -20,6 +23,6 @@
   },
   "devDependencies": {
     "electron": "1.8.2",
-    "electron-builder": "20.2.0"
+    "electron-builder": "20.39.0"
   }
 }
