@@ -1,4 +1,4 @@
 [submodule "contents"]
 	path = contents
-	url = git@github.com:PBSA/peerplays-core-gui.git
+	url = git@github.com:peerplays-network/peerplays-core-gui.git
 	branch = develop
