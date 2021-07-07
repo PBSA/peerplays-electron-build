@@ -1,5 +1,5 @@
 {
-  "name": "PeerplaysCoreGui",
+  "name": "peerplays-core-gui",
   "version": "0.4.0",
   "description": "The intent of this project is to provide a starting point for building electron applications that connect to the Peerplays BlockChain.",
   "main": "build/electron.js",
@@ -7,8 +7,9 @@
     "start": "electron .",
     "clean": "rm -rf build && rm -rf dist",
     "copy:contents": "mkdir build && cp -r contents/build/* build/",
+    "sync:version": "node update-version.js",
     "copy:app": "cp app/electron.js build/",
-    "compile": "npm run clean && npm run copy:contents && npm run copy:app",
+    "compile": "npm run clean && npm run copy:contents && npm run sync:version && npm run copy:app",
     "dist": "npm run compile && electron-builder -wml",
     "live": "npm run copy:app && ELECTRON_IS_DEV=1 electron .",
     "postinstall": "electron-builder install-app-deps"
